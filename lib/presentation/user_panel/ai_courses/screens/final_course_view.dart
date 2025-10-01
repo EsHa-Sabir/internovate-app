@@ -309,7 +309,17 @@ class _FinalCourseViewState extends State<FinalCourseView> {
               ),
             ),
 
-            // 🔹 Video Thumbnail with Play Button
+          
+
+            // 🔹 Content
+            Expanded(
+              child: SingleChildScrollView(
+                padding:
+                const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                      // 🔹 Video Thumbnail with Play Button
             if (course.includesVideo &&
                 chapter.videoUrl != null &&
                 chapter.videoUrl!.isNotEmpty &&
@@ -323,7 +333,7 @@ class _FinalCourseViewState extends State<FinalCourseView> {
                 },
                 child: Card(
                   elevation: 4,
-                  margin: const EdgeInsets.only(bottom: 20, top: 20,left: 15,right: 15),
+                  margin: const EdgeInsets.only(bottom: 20, top: 20,),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
                     side: BorderSide(
@@ -382,15 +392,6 @@ class _FinalCourseViewState extends State<FinalCourseView> {
                   ),
                 ),
               ),
-
-            // 🔹 Content
-            Expanded(
-              child: SingleChildScrollView(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
                     Text(
                       chapter.title,
                       style: Theme.of(context).textTheme.headlineSmall?.copyWith(
