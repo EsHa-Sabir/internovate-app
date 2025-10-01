@@ -15,7 +15,7 @@ class ProgressOverviewGraph extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.cardColor, // 🔹 Clean solid card
+        color: Color(0xff1E1E1E), // 🔹 Clean solid card
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
