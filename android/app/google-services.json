@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "615952097816",
+    "project_id": "intern-management-app-4e6ec",
+    "storage_bucket": "intern-management-app-4e6ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615952097816:android:b2f0bd0f68576b365d996d",
+        "android_client_info": {
+          "package_name": "com.example.intern_management_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615952097816-7d703g4a576017vo8bg9urtb3njoai9p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intern_management_app",
+            "certificate_hash": "975116b752c2b961b96703800f25ec735b85fc9d"
+          }
+        },
+        {
+          "client_id": "615952097816-feb6ctu479fvqol4g496dl6907kui3ua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT6i1ge1_krw15SM5U3VqHl6-m3rEDFdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615952097816-feb6ctu479fvqol4g496dl6907kui3ua.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "615952097816-kpu251n40c49olddiitddva7k00t9rqu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.internManagementApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
