@@ -309,6 +309,79 @@ class _FinalCourseViewState extends State<FinalCourseView> {
               ),
             ),
 
+            // 🔹 Video Thumbnail with Play Button
+            if (course.includesVideo &&
+                chapter.videoUrl != null &&
+                chapter.videoUrl!.isNotEmpty &&
+                videoId != null)
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => FullVideoScreen(
+                    videoId: videoId,
+                    // Yeh property pass karna zaroori hai
+                  ));
+                },
+                child: Card(
+                  elevation: 4,
+                  margin: const EdgeInsets.only(bottom: 20, top: 20,left: 15,right: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                    side: BorderSide(
+                      color: AppColors.hintColor.withOpacity(0.3),
+                      width: 1,
+                    ),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.network(
+                        YoutubePlayer.getThumbnail(
+                          videoId: videoId,
+                          quality: ThumbnailQuality.high,
+                        ),
+                        height: 220,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                        const SizedBox(
+                          height: 220,
+                          child: Center(
+                            child: Text("Thumbnail not available"),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 70,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.play_arrow,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            else if (course.includesVideo)
+              Card(
+                elevation: 4,
+                margin: const EdgeInsets.only(bottom: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const SizedBox(
+                  height: 220,
+                  child: Center(
+                    child: Text("Video not available or invalid URL."),
+                  ),
+                ),
+              ),
 
             // 🔹 Content
             Expanded(
@@ -318,80 +391,6 @@ class _FinalCourseViewState extends State<FinalCourseView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // 🔹 Video Thumbnail with Play Button
-                    if (course.includesVideo &&
-                        chapter.videoUrl != null &&
-                        chapter.videoUrl!.isNotEmpty &&
-                        videoId != null)
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(() => FullVideoScreen(
-                            videoId: videoId,
-                            // Yeh property pass karna zaroori hai
-                          ));
-                        },
-                        child: Card(
-                          elevation: 4,
-                          margin: const EdgeInsets.only(bottom: 20, top: 20,),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            side: BorderSide(
-                              color: AppColors.hintColor.withOpacity(0.3),
-                              width: 1,
-                            ),
-                          ),
-                          clipBehavior: Clip.antiAlias,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Image.network(
-                                YoutubePlayer.getThumbnail(
-                                  videoId: videoId,
-                                  quality: ThumbnailQuality.high,
-                                ),
-                                height: 220,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) =>
-                                const SizedBox(
-                                  height: 220,
-                                  child: Center(
-                                    child: Text("Thumbnail not available"),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 70,
-                                height: 70,
-                                decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.5),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Icon(
-                                  Icons.play_arrow,
-                                  color: Colors.white,
-                                  size: 40,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    else if (course.includesVideo)
-                      Card(
-                        elevation: 4,
-                        margin: const EdgeInsets.only(bottom: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        child: const SizedBox(
-                          height: 220,
-                          child: Center(
-                            child: Text("Video not available or invalid URL."),
-                          ),
-                        ),
-                      ),
-
                     Text(
                       chapter.title,
                       style: Theme.of(context).textTheme.headlineSmall?.copyWith(
