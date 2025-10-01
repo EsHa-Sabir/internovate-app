@@ -38,6 +38,7 @@ Specific Formatting:
 Professional Summary: The summary must be a single paragraph with justified alignment.
 
 Descriptions: For skills, workExperience, education, and projects, use \n mean new line to represent bullet points without using actual bullet characters (•, -, *). The new lines should separate distinct points or skills.
+/n mean new line samj ayi
 
 Handling User Data:
 
